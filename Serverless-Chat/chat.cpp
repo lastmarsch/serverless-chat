@@ -5,7 +5,7 @@ Chat::Chat(QObject *parent, peer* User) :
 {
     QSettings *settings = new QSettings("settings.ini",QSettings::IniFormat);
     port = static_cast<quint16>(settings->value("settings/port", 1252).toUInt());
-    ip = settings->value("settings/IP", QHostAddress::LocalHost).toString();
+    ip = settings->value("settings/IP", "127.0.0.1").toString();
 
     IPs = QNetworkInterface::allAddresses();
     timer.start(2000);
