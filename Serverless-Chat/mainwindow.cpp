@@ -102,7 +102,9 @@ void MainWindow::received_PM_process(QString sender, QString receiver, QString t
 }
 
 void MainWindow::open_PM(QString username)
-{    
+{  
+    if (username == user->nickname)
+        return;
     if (!PMDialog.contains(qMakePair(user->nickname, username)))
     {
         PM* PMwindow = new PM(this, username, chat, user);
